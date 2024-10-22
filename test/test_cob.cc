@@ -1,4 +1,4 @@
-#include "test/utilty.hh"
+#include "./utilty.hh"
 #include "hardware/cob/cobunit.hh"
 #include "hardware/cob/cob.hh"
 

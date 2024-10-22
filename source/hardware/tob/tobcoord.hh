@@ -5,6 +5,6 @@
 namespace kiwi::hardware {
 
     using TOBCoord = Coord;
-
+    
 }
 

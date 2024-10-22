@@ -1,5 +1,6 @@
 #include "./route.hh"
 #include <circuit/net/net.hh>
+#include <std/algorithm.hh>
 
 namespace kiwi::algo {
 

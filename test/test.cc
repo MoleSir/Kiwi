@@ -11,6 +11,7 @@ extern void test_tob_main();
 extern void test_router_main();
 extern void test_placer_main();
 extern void test_debug_main();
+extern void test_config_main();
 
 #define REGISTER_TEST(test_name)\
 functions.emplace(#test_name, & test_##test_name##_main);\
@@ -32,6 +33,7 @@ int main(int argc, char** argv) {
     REGISTER_TEST(router)
     REGISTER_TEST(placer)
     REGISTER_TEST(debug)
+    REGISTER_TEST(config)
 
     if (target == "all") {
         for (auto [test_name, test_func] : functions) {

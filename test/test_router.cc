@@ -5,7 +5,7 @@
 #include "debug/debug.hh"
 #include "hardware/node/track.hh"
 #include "hardware/tob/tobsigdir.hh"
-#include "test/utilty.hh"
+#include "./utilty.hh"
 #include <algo/router/maze/mazeroutestrategy.hh>
 #include <hardware/interposer.hh>
 #include <circuit/net/nets.hh>

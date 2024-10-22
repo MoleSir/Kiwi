@@ -7,6 +7,7 @@
 #include <queue>
 #include <map>
 #include <set>
+#include <span>
 #include <unordered_map>
 #include <unordered_set>
 
@@ -38,5 +39,8 @@ namespace std {
 
     template <typename T>
     using HashSet = unordered_set<T>;
+
+    template <typename T>
+    using Span = span<T>;
     
 }

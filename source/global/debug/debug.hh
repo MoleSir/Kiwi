@@ -31,8 +31,8 @@ namespace kiwi::debug
 
     [[noreturn]] auto exception(std::StringView message) -> void;
     [[noreturn]] auto exception_in(std::StringView where, std::StringView message) -> void;
-    [[noreturn]] auto unreachable() -> void;
-    [[noreturn]] auto unimplement() -> void;
+    [[noreturn]] auto unreachable(std::StringView message = "") -> void;
+    [[noreturn]] auto unimplement(std::StringView message = "") -> void;
 
     template <typename... Args>
     auto debug_fmt(std::FormatString<Args...> fmt, Args &&... args) -> void {

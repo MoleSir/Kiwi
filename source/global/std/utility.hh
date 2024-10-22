@@ -3,6 +3,7 @@
 #include <optional>
 #include <tuple>
 #include <utility>
+#include <variant>
 
 namespace std {
 
@@ -14,5 +15,8 @@ namespace std {
     
     template <typename... Ts>
     using Tuple = tuple<Ts...>;
+
+    template <typename... Ts>
+    using Variant = variant<Ts...>;
 
 }

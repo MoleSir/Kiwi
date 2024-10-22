@@ -8,6 +8,11 @@ namespace kiwi::hardware {
     {
     }
 
+    TrackCoord::TrackCoord() :
+        TrackCoord{0, 0, TrackDirection::Vertical, 0}
+    {
+    }
+
     bool TrackCoord::operator == (const TrackCoord& other) const {
         return this->row == other.row &&
                 this->col == other.col &&
