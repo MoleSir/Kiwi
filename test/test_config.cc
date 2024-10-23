@@ -10,7 +10,6 @@ auto test_muyan_xinzhai() -> void {
     console::println_fmt("{}", config.topdie_insts.at("muyan_0").coord);
 }
 
-auto test_config_main() -> int {
+void test_config_main() {
     test_muyan_xinzhai();
-    return 0;
 }

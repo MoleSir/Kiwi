@@ -1,8 +1,8 @@
 #include "console.hh"
 #include <iostream>
 
-namespace kiwi::console
-{
+namespace kiwi::console {
+
     static void print_level(Color color, std::StringView level)
     {
         std::cout << '[';
@@ -13,16 +13,16 @@ namespace kiwi::console
     void print_with_color(std::StringView message, Color color) {
         const char* colorInfo = nullptr;
         switch (color) {
-            case Color::Black:  colorInfo = "\e[30m"; break;
-            case Color::Red:    colorInfo = "\e[31m"; break;
-            case Color::Green:  colorInfo = "\e[32m"; break;
-            case Color::Yellow: colorInfo = "\e[33m"; break;
-            case Color::Blue:   colorInfo = "\e[34m"; break;
-            case Color::Purple: colorInfo = "\e[35m"; break;
-            case Color::Cyan:   colorInfo = "\e[36m"; break;
-            case Color::White:  colorInfo = "\e[37m"; break;
+            case Color::Black:  colorInfo = "\033[30m"; break;
+            case Color::Red:    colorInfo = "\033[31m"; break;
+            case Color::Green:  colorInfo = "\033[32m"; break;
+            case Color::Yellow: colorInfo = "\033[33m"; break;
+            case Color::Blue:   colorInfo = "\033[34m"; break;
+            case Color::Purple: colorInfo = "\033[35m"; break;
+            case Color::Cyan:   colorInfo = "\033[36m"; break;
+            case Color::White:  colorInfo = "\033[37m"; break;
         }
-        std::cout << colorInfo << message << "\e[0m" << std::ends;
+        std::cout << colorInfo << message << "\033[0m" << std::ends;
     }
 
     void print(std::StringView message) {

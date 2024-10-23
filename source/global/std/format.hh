@@ -5,7 +5,14 @@
 namespace std {
 
     #define __FORMAT_NARGS_IMPL(_1, _2, _3, _4, _5, _6, _7, _8, _9, _10, _11, _12, _13, _14, _15, _16, _17, _18, _19, _20, _21, _22, _23, _24, _25, _26, _27, _28, _29, _30, _31, _32, N, ...) N
-    #define __FORMAT_NARGS(...) __FORMAT_NARGS_IMPL(__VA_ARGS__, 32, 31, 30, 29, 28, 27, 26, 25, 24, 23, 22, 21, 20, 19, 18, 17, 16, 15, 14, 13, 12, 11, 10, 9, 8, 7, 6, 5, 4, 3, 2, 1)
+    
+    #if _WIN32
+        #define __FORMAT_ID(x) x
+        #define __FORMAT_NARGS_MSVC_HELP(...) __FORMAT_ID(__FORMAT_NARGS_IMPL(__VA_ARGS__))
+        #define __FORMAT_NARGS(...) __FORMAT_NARGS_MSVC_HELP(__VA_ARGS__, 32, 31, 30, 29, 28, 27, 26, 25, 24, 23, 22, 21, 20, 19, 18, 17, 16, 15, 14, 13, 12, 11, 10, 9, 8, 7, 6, 5, 4, 3, 2, 1)
+    #else
+        #define __FORMAT_NARGS(...) __FORMAT_NARGS_IMPL(__VA_ARGS__, 32, 31, 30, 29, 28, 27, 26, 25, 24, 23, 22, 21, 20, 19, 18, 17, 16, 15, 14, 13, 12, 11, 10, 9, 8, 7, 6, 5, 4, 3, 2, 1)
+    #endif
 
     #define __FORMAT_INVOKE_FOREACH_SEP_BY_COLON_1(f, _1) f(_1)
     #define __FORMAT_INVOKE_FOREACH_SEP_BY_COLON_2(f, _1, _2) f(_1), f(_2)

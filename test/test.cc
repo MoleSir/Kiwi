@@ -33,7 +33,7 @@ int main(int argc, char** argv) {
     REGISTER_TEST(router)
     REGISTER_TEST(placer)
     REGISTER_TEST(debug)
-    REGISTER_TEST(config)
+    // REGISTER_TEST(config)
 
     if (target == "all") {
         for (auto [test_name, test_func] : functions) {

@@ -289,7 +289,7 @@ namespace kiwi::serde {
             content = utility::read_file(filepath);
         } 
         catch (const std::exception& err) {
-            throw std::runtime_error{std::format("file '{}' read failed", filepath.c_str())};
+            throw std::runtime_error{std::format("file '{}' read failed", filepath.string())};
         }
 
         auto tokens = JsonScanner{std::move(content)}.scan();

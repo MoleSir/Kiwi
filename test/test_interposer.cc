@@ -102,13 +102,11 @@ void test_get_bump() {
     ASSERT_EQ(bump->tob()->coord().col, 1);
 }
 
-int test_interposer_main() {
+void test_interposer_main() {
 
     test_adjacent_tracks();
     test_adjacent_idle_tracks1();
     test_adjacent_idle_tracks2();    
     test_available_tracks();
     test_get_bump();
-
-    return 0;
 }

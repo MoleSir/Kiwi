@@ -82,12 +82,10 @@ void test_randomly_map_remain_indexes() {
     }
 }
 
-int test_tob_main() {
+void test_tob_main() {
     test_tob_mux_available_output_indexes();
     test_available_output_indexes_1();
     test_available_output_indexes_2();
     test_b_index_map_t_index();
     test_randomly_map_remain_indexes();
-
-    return 0;
 }

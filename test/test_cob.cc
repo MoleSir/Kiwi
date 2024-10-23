@@ -70,12 +70,11 @@ auto test_adjacent_connectors() -> void {
     ASSERT_EQ(cs.size(), 3);
 }
 
-auto test_cob_main() -> int {
+void test_cob_main() {
     test_cob_unit();
     test_cob_index_to_cobunit_info();
     test_cobunit_info_to_cob_index();
     test_track_index_map();
     test_cob_index_map();
     test_adjacent_connectors();
-    return 0;
 }

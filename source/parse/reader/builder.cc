@@ -22,6 +22,7 @@
 
 */
 
+#include "./config/config.hh"
 #include "./builder.hh"
 
 #include <hardware/interposer.hh>
