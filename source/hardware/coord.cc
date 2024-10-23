@@ -4,8 +4,13 @@
 
 namespace kiwi::hardware {
 
-    Coord::Coord(std::i64 row, std::i64 col):
+    Coord::Coord(std::i64 row, std::i64 col) :
         row{row}, col{col} 
+    {
+    }
+
+    Coord::Coord() :
+        Coord{0, 0}
     {
     }
 

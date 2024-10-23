@@ -27,12 +27,11 @@ namespace kiwi::debug
     [[noreturn]] auto fatal(std::StringView message) -> void;
     
     auto check(bool condition, std::StringView message) -> void;
-    auto ensure(bool condition, std::StringView message) -> void;
 
     [[noreturn]] auto exception(std::StringView message) -> void;
     [[noreturn]] auto exception_in(std::StringView where, std::StringView message) -> void;
-    [[noreturn]] auto unreachable() -> void;
-    [[noreturn]] auto unimplement() -> void;
+    [[noreturn]] auto unreachable(std::StringView message = "") -> void;
+    [[noreturn]] auto unimplement(std::StringView message = "") -> void;
 
     template <typename... Args>
     auto debug_fmt(std::FormatString<Args...> fmt, Args &&... args) -> void {
@@ -80,13 +79,6 @@ namespace kiwi::debug
     auto check_fmt(bool condition, std::FormatString<Args...> fmt, Args &&... args) -> void {
         if (!condition) {
             exception_fmt(std::move(fmt), std::forward<Args>(args)...);
-        }
-    }
-
-    template <typename... Args>
-    auto ensure_fmt(bool condition, std::FormatString<Args...> fmt, Args &&... args) -> void {
-        if (!condition) {
-            fatal_fmt(std::move(fmt), std::forward<Args>(args)...);
         }
     }
 

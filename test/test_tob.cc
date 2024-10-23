@@ -1,5 +1,5 @@
 #include <std/integer.hh>
-#include "test/utilty.hh"
+#include "./utilty.hh"
 #include "hardware/tob/tobmux.hh"
 #include "hardware/tob/tob.hh"
 

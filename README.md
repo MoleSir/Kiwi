@@ -7,8 +7,10 @@
 
 ## 项目结构
 
+- [config](./config/)：配置文件
 - [document](./document/)：项目文档
 - [source](./source/)：源码
+- [test](./test/)：项目模块测试
 
 
 

@@ -68,12 +68,6 @@ namespace kiwi::debug {
         } 
     }
 
-    auto ensure(bool condition, std::StringView message) -> void {
-        if (!condition) {
-            fatal(message);
-        } 
-    }
-
     [[noreturn]] auto exception(std::StringView message) -> void {
         throw std::RunTimeError{std::String{message}};
     }
@@ -82,14 +76,20 @@ namespace kiwi::debug {
         throw std::RunTimeError{std::format("{} >> {}", where, message)};
     }
 
-    [[noreturn]] auto unreachable() -> void {
-        fatal("Reach unreachable");
-        std::exit(1);
+    [[noreturn]] auto unreachable(std::StringView message) -> void {
+        if (message.empty()) {
+            fatal("Reach unreachable");
+        } else {
+            fatal_fmt("Reach unreachable in '{}'", message);
+        }
     }
 
-    [[noreturn]] auto unimplement() -> void {
-        fatal("Reach unimplement");
-        std::exit(1);
+    [[noreturn]] auto unimplement(std::StringView message) -> void {
+        if (message.empty()) {
+            fatal("Reach unreachable");
+        } else {
+            fatal_fmt("Reach unimplement in '{}'", message);
+        }
     }
 
 }
