@@ -1,6 +1,6 @@
 #include "./utilty.hh"
 #include "debug/console.hh"
-#include <parse/config/config.hh>
+#include <parse/reader/config/config.hh>
 
 using namespace kiwi::parse;
 using namespace kiwi;

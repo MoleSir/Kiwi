@@ -68,12 +68,6 @@ namespace kiwi::debug {
         } 
     }
 
-    auto ensure(bool condition, std::StringView message) -> void {
-        if (!condition) {
-            fatal(message);
-        } 
-    }
-
     [[noreturn]] auto exception(std::StringView message) -> void {
         throw std::RunTimeError{std::String{message}};
     }

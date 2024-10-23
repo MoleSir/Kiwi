@@ -1,7 +1,19 @@
 #pragma once
 
-#include "std/file.hh"
+#include <std/file.hh>
+#include <std/utility.hh>
+#include <std/collection.hh>
+#include <std/string.hh>
+#include <std/memory.hh>
+
 namespace kiwi::serde {
+
+    /*
+        A Deserializer should impl:
+        - at(str)
+        - get_to(v&)
+        - static load_from(path) -> Deserializer
+    */
 
     #define DE_FILED(f) dsr.at(#f).get_to(c.f);
     #define DE_OPTION_FILED(f) try { dsr.at(#f).get_to(c.f); } catch (const std::exception&) {}
@@ -52,5 +64,25 @@ namespace kiwi::serde {
         auto dsr = Deserializer::load_from(path);
         return Deserialize<Deserializer, Value>::from(dsr);
     }
+
+    /*
+        Default impl for useful data structure
+    */
+
+    template <typename Deserializer, typename Value>
+    struct Deserialize<Deserializer, std::Option<Value>> {
+        static void from(const Deserializer& dsr, std::optional<Value>& value) {
+            auto inner = deserialize<Deserializer, Value>(dsr);
+            value.emplace(std::move(inner));
+        }
+    };
+
+    template <typename Deserializer, typename Value>
+    struct Deserialize<Deserializer, std::Box<Value>> {
+        static void from(const Deserializer& dsr, std::Box<Value>& value) {
+            value = std::make_unique<Value>();
+            Deserialize<Deserializer, Value>::from(dsr, *value);
+        }
+    };
 
 }

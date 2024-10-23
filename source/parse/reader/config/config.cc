@@ -112,18 +112,6 @@ namespace kiwi::parse {
         if (extension == ".json") {
             debug::unimplement("Load connection config by json");
         } 
-        /*
-        
-        
-            int main(){
-                xlnt::workbook wb;
-                wb.load("example.xlsx");
-                xlnt::worksheet ws = wb.active_sheet();
-                ws.cell("A1").value(5);
-                wb.save("example.xlsx");
-            }
-        
-        */
         else if (extension == ".xlsx") {
             auto workbook = xlnt::workbook();
             workbook.load(path);

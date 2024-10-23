@@ -162,23 +162,6 @@ struct kiwi::serde::Deserialize<kiwi::serde::Json, std::FilePath> {
 };
 
 template <typename Value>
-struct kiwi::serde::Deserialize<kiwi::serde::Json, std::optional<Value>> {
-    static void from(const kiwi::serde::Json& json, std::optional<Value>& value) {
-        auto inner = Value{};
-        Deserialize<Json, Value>::from(json, inner);
-        value.emplace(std::move(inner));
-    }
-};
-
-template <typename Value>
-struct kiwi::serde::Deserialize<kiwi::serde::Json, std::unique_ptr<Value>> {
-    static void from(const kiwi::serde::Json& json, std::unique_ptr<Value>& value) {
-        value = std::make_unique<Value>();
-        Deserialize<Json, Value>::from(json, *value);
-    }
-};
-
-template <typename Value>
 struct kiwi::serde::Deserialize<kiwi::serde::Json, std::Vector<Value>> {
     static void from(const kiwi::serde::Json& json, std::Vector<Value>& value) {
         auto arr = json.as_array();
